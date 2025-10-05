@@ -1,20 +1,32 @@
 /* Header */
 .header {
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: start;
-    padding: 20px 0;
+    grid-template-columns: 1fr min-content 1fr;
+    align-items: center;
+    padding: 20px 40px;
+    font-size: 18px; /* размер шрифта в хедере */
+    font-weight: 400; /* Regular */
 }
 
-/* Header spacing to first section */
-.header + .main .section:first-of-type {
-    margin-top: 20px;
-}
-
-.header__menu .menu__list {
+.header__menu .menu__list,
+.header__menu .header__links-list {
     display: flex;
-    gap: 20px;
+    gap: 32px;
     list-style: none;
+}
+
+/* header links */
+.header__link {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.header__link_active {
+    text-decoration: none;
+}
+
+.header__menu .menu__item:first-child a {
+    text-decoration: none;
 }
 
 .header__logo img {
@@ -23,8 +35,14 @@
 }
 
 .header__address {
-    font-style: normal;
-    text-align: right;
+    font-style: normal; /* сброс стандартного курсива у <address> */
+    text-align: left;
+    max-width: 240px; /* значение из макета, подгоню при необходимости */
+    justify-self: end; /* блок остаётся прижат к правому краю своей колонки */
+}
+
+address {
+    font-style: normal; /* общий сброс стандартного курсива у семантического тега <address> */
 }
 
 /* Section utilities */
@@ -101,10 +119,16 @@
     width: 100%;
     display: block;
 }
-
-.card__title {
-    font-size: 20px;
-    margin: 12px 0;
+.card {
+    min-height: 420px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .card__text {
@@ -116,23 +140,35 @@
     margin-top: 20px;
 }
 
+.header__menu .menu__item,
+.header__menu .header__links-list-item {
+    position: relative;
+}
+
+.header__menu .menu__item:not(:last-child)::after,
+.header__menu .header__links-list-item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -19px; /* центр кружка на середине gap */
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid currentColor;
+    pointer-events: none;
+}
+
+/* отключаем кружок у специального модификатора */
+.header__menu .header__links-list-item.header__links-list-item_no-bullit::after {
+    content: none;
+}
 /* Lots cards background types and layout */
 .card-link {
     display: block;
     text-decoration: none;
     color: inherit;
-}
-
-.card {
-    min-height: 420px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    overflow: hidden;
 }
 
 .card::before {

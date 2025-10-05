@@ -12,19 +12,20 @@
 <body>
 <header class="header">
     <nav class="header__menu" aria-label="Главное меню">
-        <ul class="menu__list">
-            <li class="menu__item"><a href="#">главная</a></li>
-            <li class="menu__item"><a href="#">посмотреть лоты</a></li>
-            <li class="menu__item"><a href="#">об аукционе</a></li>
+        <ul class="menu__list header__links-list">
+            <li class="menu__item header__links-list-item"><a class="header__link header__link_active"
+                                                              href="#">главная</a></li>
+            <li class="menu__item header__links-list-item"><a class="header__link" href="#">посмотреть лоты</a></li>
+            <li class="menu__item header__links-list-item"><a class="header__link" href="#">об аукционе</a></li>
         </ul>
     </nav>
-    <a class="header__logo" href="#" aria-label="Логотип">
-        <img src="./images/logo-black.svg" alt="Оно тебе надо"/>
+    <a class="header__logo" aria-label="Логотип">
+        <img class="header__logo-image" src="./images/logo-black.svg" alt="Оно тебе надо"/>
     </a>
     <address class="header__address">
         <a href="tel:+99995555555">+9 999 555 5555</a><br/>
         <a href="mailto:info@sobaka.ge">info@sobaka.ge</a><br/>
-        <span>наб. Принсенграхт 263- 265, Амстердам</span>
+        <span>наб. Принсенграхт 263-<br/>265, Амстердам</span>
     </address>
 </header>
 
@@ -84,7 +85,7 @@
 
     <section class="about section section_bg-white" aria-labelledby="about-title">
         <div class="about__column about__column_left">
-            <a class="about__logo-link" href="#" aria-label="Логотип">
+            <a class="about__logo-link" aria-label="Логотип">
                 <img src="./images/logo-black.svg" alt="Логотип Оно тебе надо"/>
             </a>
         </div>
