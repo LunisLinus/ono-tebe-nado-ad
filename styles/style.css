@@ -3,7 +3,7 @@
     display: grid;
     grid-template-columns: 1fr min-content 1fr;
     align-items: center;
-    padding: 20px 40px;
+    padding: 95px 50px 0; /* сверху 95px, слева/справа 50px, снизу 0 */
     font-size: 18px; /* размер шрифта в хедере */
     font-weight: 400; /* Regular */
 }
