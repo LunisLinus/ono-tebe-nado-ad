@@ -438,6 +438,8 @@ address {
 }
 
 .footer__address {
+    font-size: 18px;
+    line-height: 24px;
     font-style: normal;
     text-align: left;
     justify-self: start;
@@ -455,11 +457,12 @@ address {
     margin: 0;
     display: grid; /* список как грид-колонка */
     justify-items: center; /* выравнивание текста по центру */
-    row-gap: 8px; /* вертикальные интервалы между ссылками */
     text-align: center; /* центрируем текст пунктов меню */
 }
 
-.footer__menu-list-item {}
+.footer__menu-list-item {
+    font-size: 18px;
+}
 
 .footer__menu-link {
     color: inherit;
