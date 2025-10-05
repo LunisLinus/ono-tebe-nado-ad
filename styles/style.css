@@ -3,7 +3,7 @@
     display: grid;
     grid-template-columns: 1fr min-content 1fr;
     align-items: center;
-    padding: 20px 40px;
+    padding: 95px 50px 0; /* сверху 95px, слева/справа 50px, снизу 0 */
     font-size: 18px; /* размер шрифта в хедере */
     font-weight: 400; /* Regular */
 }
@@ -55,8 +55,40 @@ address {
 }
 
 .section_bg-image {
+    position: relative; /* нужна опорная область для абсолютных потомков */
     background: url('../images/cover.jpg') center/cover no-repeat;
     color: #fff;
+}
+
+.cover {
+    padding: 165px 50px 60px; /* сверху 165px, по бокам 50px, снизу 60px */
+}
+
+/* универсальный оверлей: можно применять к любой секции/карточке */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1; /* ниже контента секции, если у контента z-index больше */
+}
+
+/* поднимаем контент секции над оверлеем */
+.cover > *:not(.overlay) {
+    position: relative;
+    z-index: 2;
+}
+
+/* существующий градиент-подложка карточки остаётся, контент карточки над ней */
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.35) 50%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+.card > * {
+    position: relative;
+    z-index: 1;
 }
 
 .section_bg-white {
@@ -64,31 +96,103 @@ address {
 }
 
 .cover__title {
+    display: grid; /* удобнее управлять переносами строк */
+    grid-template-rows: repeat(3, min-content);
+    gap: 10px;
     font-size: 72px;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    margin-bottom: 40px;
+    margin-bottom: 106px; /* точное расстояние до нижнего текста и кнопки */
 }
 
-.description {
+/* каждая строка заголовка — отдельный элемент */
+.aligned-text {
+    display: block;
+    line-height: 1.1;
+    text-align: left;
+}
+
+.aligned-text_center {
+    text-align: center;
+}
+
+.aligned-text_right {
+    text-align: right;
+}
+
+.cover__description {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    column-gap: 24px; /* расстояние между текстом и кнопкой */
+    margin-top: 0; /* контролируем расстояние через .cover__title margin-bottom = 106px */
 }
 
-.description__text {
-    display: flex;
-    gap: 10px;
+.cover__description-text {
+    display: block; /* оставляем потоковый текст */
     text-transform: uppercase;
+    letter-spacing: 0.05em; /* общий трекинг — подгоню под пиксель-перфект */
+    word-spacing: 22px; /* нестандартный интервал между словами */
 }
 
-.description__button {
-    padding: 12px 20px;
-    border: 1px solid #fff;
+/* утилиты для акцентной разрядки слова/букв */
+.letter-spacing-extended {
+    letter-spacing: 0.13em; /* акцентная разрядка по макету */
+}
+
+.no-letter-spacing {
+    letter-spacing: 0; /* обнуление у последней буквы */
+}
+
+.bet-button {
+    /* сброс стандартных стилей */
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
     background: transparent;
-    color: #fff;
-    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    line-height: inherit;
     text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+
+    /* локальные стили по макету */
+    border: 1px solid #fff; /* переопределяем границу */
+    padding: 12px 32px; /* внутренние отступы */
+    background-color: transparent; /* фон прозрачный */
+    color: #fff;
+    letter-spacing: 0.1em; /* акцентная разрядка для кнопки */
+    transition: background-color .2s ease, box-shadow .2s ease, transform .02s ease;
+}
+
+.bet-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.6);
+}
+
+.bet-button:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+.bet-button:active {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(1px);
+}
+
+@media (max-width: 768px) {
+    .cover__description {
+        flex-direction: column;
+        align-items: flex-start;
+        row-gap: 20px;
+    }
+
+    .bet-button {
+        padding: 12px 24px;
+    }
 }
 
 /* Lots */
