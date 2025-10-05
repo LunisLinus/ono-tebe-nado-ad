@@ -410,21 +410,61 @@ address {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
-    padding: 40px 0;
+    padding: 0 50px 82px; /* сверху 0, по бокам 50px, снизу 82px */
+    align-items: start; /* выравниваем содержимое по верхнему краю */
 }
 
 .footer__address {
     font-style: normal;
+    text-align: left;
+    justify-self: start;
+    max-width: 240px;
+}
+
+.footer__menu {
+    display: block; /* контейнер для навигации */
+    justify-self: center; /* размещаем меню по центру своей колонки */
 }
 
 .footer__menu-list {
     list-style: none;
-    text-align: center;
+    padding: 0;
+    margin: 0;
+    display: grid; /* список как грид-колонка */
+    justify-items: center; /* выравнивание текста по центру */
+    row-gap: 8px; /* вертикальные интервалы между ссылками */
+    text-align: center; /* центрируем текст пунктов меню */
+}
+
+.footer__menu-list-item {}
+
+.footer__menu-link {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.footer__menu-link_active {
+    text-decoration: none; /* активная — без подчёркивания */
 }
 
 .footer__social-list {
-    display: flex;
-    gap: 16px;
     list-style: none;
-    justify-content: flex-end;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 48px; /* расстояние между иконками */
+    justify-content: flex-end; /* выравниваем элементы по правому краю */
+    justify-self: end; /* прижимаем список к правому краю грид-колонки */
+}
+
+.footer__social-list-item {}
+
+.footer__social-link {
+    display: inline-flex;
+}
+
+.footer__social-icon {
+    width: 48px;
+    height: 48px;
+    display: block;
 }
