@@ -6,6 +6,11 @@
     padding: 20px 0;
 }
 
+/* Header spacing to first section */
+.header + .main .section:first-of-type {
+    margin-top: 20px;
+}
+
 .header__menu .menu__list {
     display: flex;
     gap: 20px;
@@ -22,12 +27,22 @@
     text-align: right;
 }
 
-/* Cover */
-.cover {
-    position: relative;
-    padding: 40px 0;
+/* Section utilities */
+.section {
+    padding: 60px 0; /* внутренние отступы секции */
+}
+
+.section + .section {
+    margin-top: 60px; /* внешний отступ между соседними секциями */
+}
+
+.section_bg-image {
     background: url('../images/cover.jpg') center/cover no-repeat;
     color: #fff;
+}
+
+.section_bg-white {
+    background: #fff;
 }
 
 .cover__title {
@@ -60,7 +75,7 @@
 
 /* Lots */
 .lots {
-    padding: 60px 0;
+    /* padding перенесён в .section */
 }
 
 .lots__title {
@@ -124,24 +139,41 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.1) 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.35) 50%, rgba(0, 0, 0, 0.1) 100%);
 }
 
-.card > * { position: relative; z-index: 1; }
+.card > * {
+    position: relative;
+    z-index: 1;
+}
 
-.card_type_film { background-image: url('../images/card-lot-01.jpg'); }
-.card_type_book { background-image: url('../images/card-lot-02.jpg'); }
-.card_type_picture { background-image: url('../images/card-lot-03.jpg'); }
+.card_type_film {
+    background-image: url('../images/card-lot-01.jpg');
+}
 
-.card__title { text-transform: uppercase; font-weight: 700; }
-.card__text { margin-top: 12px; }
+.card_type_book {
+    background-image: url('../images/card-lot-02.jpg');
+}
+
+.card_type_picture {
+    background-image: url('../images/card-lot-03.jpg');
+}
+
+.card__title {
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.card__text {
+    margin-top: 12px;
+}
 
 /* About */
 .about {
     display: grid;
     grid-template-columns: 240px 1fr;
     gap: 40px;
-    padding: 60px 0;
+    /* padding перенесён в .section */
 }
 
 .about__title {
