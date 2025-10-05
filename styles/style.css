@@ -4,6 +4,8 @@
     grid-template-columns: 1fr min-content 1fr;
     align-items: center;
     padding: 20px 40px;
+    font-size: 18px; /* размер шрифта в хедере */
+    font-weight: 400; /* Regular */
 }
 
 .header__menu .menu__list,
