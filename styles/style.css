@@ -51,7 +51,12 @@ address {
 }
 
 .section + .section {
-    margin-top: 60px; /* внешний отступ между соседними секциями */
+    margin-top: 60px; /* внешний отступ между соседними секциями по умолчанию */
+}
+
+/* увеличиваем расстояние между блоком обложки и блоком лотов именно до 180px */
+.cover + .lots {
+    margin-top: 180px;
 }
 
 .section_bg-image {
@@ -201,47 +206,50 @@ address {
 }
 
 .lots__title {
-    font-size: 24px;
+    font-size: 40px;
     font-weight: bold;
     margin-bottom: 20px;
     text-transform: uppercase;
+    margin-left: 40px; /* отступ слева по требованию */
 }
 
 .lots__list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    /* сбросы списка */
     list-style: none;
+    margin: 0;
+    padding: 0;
+
+    /* раскладка карточек: флекс, перенос строк */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* расстояние между карточками */
+    align-items: stretch; /* выравниваем по высоте */
+}
+
+/* пункт списка: ширина и минимальная высота по макету */
+.lots__item {
+    flex: 1 1 calc((100% - 40px) / 3); /* три карточки в ряд с учётом двух промежутков по 20px */
+    min-height: 420px;
 }
 
 .card {
     position: relative;
     color: #fff;
+    background-size: cover;
+    background-position: center;
+    padding: 48px 40px; /* внутренние отступы карточки: сверху/снизу 48px, слева/справа 40px */
+    overflow: hidden;
 }
 
 .card__image {
     width: 100%;
     display: block;
 }
-.card {
-    min-height: 420px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.card__text {
-    font-size: 16px;
-}
 
 .lots__more-link {
     display: inline-block;
     margin-top: 20px;
+    padding-left: 40px;
 }
 
 .header__menu .menu__item,
@@ -268,23 +276,34 @@ address {
 .header__menu .header__links-list-item.header__links-list-item_no-bullit::after {
     content: none;
 }
+
 /* Lots cards background types and layout */
 .card-link {
     display: block;
-    text-decoration: none;
+    text-decoration: none; /* сброс подчёркивания у ссылки */
     color: inherit;
+    height: 100%; /* ссылка растягивается по высоте li */
 }
 
+.card {
+    height: 100%; /* карточка растягивается по высоте ссылки */
+    display: flex;
+    flex-direction: column; /* контент сверху вниз */
+    justify-content: flex-start; /* заголовок сверху */
+}
+
+/* абсолютный оверлей поверх фона карточки */
 .card::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.35) 50%, rgba(0, 0, 0, 0.1) 100%);
+    background: rgba(0, 0, 0, 0.6); /* равномерный оверлей с 60% прозрачностью */
+    z-index: 0; /* под контентом карточки */
 }
 
 .card > * {
     position: relative;
-    z-index: 1;
+    z-index: 1; /* контент над оверлеем */
 }
 
 .card_type_film {
@@ -299,13 +318,28 @@ address {
     background-image: url('../images/card-lot-03.jpg');
 }
 
+/* Для второй карточки: фиксируем расстояние в 30px между верхним заголовком и нижним текстом */
+.card_type_book .card__text {
+    margin-top: 30px;
+}
+
 .card__title {
     text-transform: uppercase;
     font-weight: 700;
+    font-size: 22px;
+    line-height: 1.2;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
 }
 
 .card__text {
-    margin-top: 12px;
+    margin-top: auto; /* текст уходит вниз карточки, сохраняя нижний отступ 48px */
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.4; /* более читабельная межстрочная */
+    overflow-wrap: break-word; /* перенос длинных слов, если без этого не помещаются */
+    word-break: normal; /* не ломаем слова без нужды */
 }
 
 /* About */
