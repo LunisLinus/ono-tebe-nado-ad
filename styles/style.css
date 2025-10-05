@@ -59,6 +59,11 @@ address {
     margin-top: 180px;
 }
 
+/* увеличиваем расстояние между блоком лотов и блоком «Об аукционе» именно до 120px */
+.lots + .about {
+    margin-top: 120px;
+}
+
 .section_bg-image {
     position: relative; /* нужна опорная область для абсолютных потомков */
     background: url('../images/cover.jpg') center/cover no-repeat;
@@ -345,19 +350,59 @@ address {
 /* About */
 .about {
     display: grid;
-    grid-template-columns: 240px 1fr;
+    grid-template-columns: calc((100% - 40px) / 3) 1fr; /* левая колонка как ширина карточки лотов, правая — остальное */
     gap: 40px;
+    align-items: start; /* выравнивание элементов по верхнему краю */
     /* padding перенесён в .section */
+    margin-bottom: 180px; /* расстояние от блока «Об аукционе» до футера */
+}
+
+.about__column { /* базовые колонки */
+}
+
+.about__logo-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 240px;
+    height: 240px;
+    background-color: #000;
+    border-radius: 50%;
+    box-sizing: border-box; /* чтобы общий размер круга оставался 240x240 при внутренних отступах */
+    padding: 0; /* центрируем логотип без смещения */
+    justify-self: center; /* по горизонтальному центру левой колонки */
+}
+
+.about__logo-link img {
+    width: 140px;
+    height: auto;
+    filter: invert(1); /* делаем логотип белым внутри чёрного круга */
 }
 
 .about__title {
-    font-size: 24px;
+    font-weight: bold;
+    font-size: 40px;
     text-transform: uppercase;
+    line-height: 1.1;
+    margin: 98px 0 100px; /* выравниваем заголовок по центру круга (центр 120px, половина строки ~22px); расстояние до текста 100px */
+}
+
+.about__text {
+    padding-right: 24px; /* отступ справа для текста по вашему требованию */
+}
+
+.about__text p {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.about__text p:first-child {
     margin-bottom: 20px;
 }
 
-.about__text p + p {
-    margin-top: 20px;
+.about__text p:last-child {
+    margin-bottom: 0;
 }
 
 /* Footer */
