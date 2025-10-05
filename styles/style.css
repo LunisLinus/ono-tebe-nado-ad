@@ -37,7 +37,8 @@
 .header__address {
     font-style: normal; /* сброс стандартного курсива у <address> */
     text-align: left;
-    max-width: 240px; /* значение из макета, подгоню при необходимости */
+    line-height: 24px;
+    width: 240px; /* фиксированная ширина контактного блока в шапке */
     justify-self: end; /* блок остаётся прижат к правому краю своей колонки */
 }
 
@@ -140,14 +141,17 @@ address {
 
 .cover__description-text {
     display: block; /* оставляем потоковый текст */
+    line-height: 28px;
     text-transform: uppercase;
-    letter-spacing: 0.05em; /* общий трекинг — подгоню под пиксель-перфект */
     word-spacing: 22px; /* нестандартный интервал между словами */
 }
 
 /* утилиты для акцентной разрядки слова/букв */
 .letter-spacing-extended {
-    letter-spacing: 0.13em; /* акцентная разрядка по макету */
+    font-size: 100px;
+    line-height: 1.15;
+    letter-spacing: 0.30em;
+    padding-top: 20px;
 }
 
 .no-letter-spacing {
