@@ -1,3 +1,4 @@
+/* =================== Header =================== */
 .header {
     display: grid;
     grid-template-columns: 1fr min-content 1fr;
@@ -22,10 +23,6 @@
     text-decoration: none;
 }
 
-.header__menu .menu__item:first-child a {
-    text-decoration: none;
-}
-
 .header__logo img {
     width: 140px;
     height: auto;
@@ -39,10 +36,6 @@
     justify-self: end;
 }
 
-address {
-    font-style: normal;
-}
-
 .cover + .lots {
     margin-top: 180px;
 }
@@ -51,22 +44,12 @@ address {
     margin-top: 160px;
 }
 
-.section_bg-image {
-    position: relative;
-    background: url('../images/cover.jpg') center/cover no-repeat;
-    color: #fff;
-}
 
+/* =================== Cover =================== */
 .cover {
     padding: 145px 50px 50px;
 }
 
-.overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 1;
-}
 
 .cover > *:not(.overlay) {
     position: relative;
@@ -75,7 +58,7 @@ address {
 
 .cover__title {
     display: grid;
-    grid-template-columns: 1fr; /* одна колонка на всю ширину контейнера */
+    grid-template-columns: 1fr;
     grid-template-rows: repeat(3, min-content);
     justify-items: start;
     text-transform: uppercase;
@@ -151,15 +134,7 @@ address {
     transition: background-color .2s ease, box-shadow .2s ease, transform .02s ease;
 }
 
-.card > * {
-    position: relative;
-    z-index: 1;
-}
-
-.section_bg-white {
-    background: #fff;
-}
-
+/* =================== Lots =================== */
 .lots__title {
     font-size: 40px;
     font-weight: bold;
@@ -179,7 +154,7 @@ address {
 }
 
 .lots__item {
-    flex: 1 1 calc((100% - 40px) / 3); /* три карточки в ряд с учётом двух промежутков по 20px */
+    flex: 1 1 calc((100% - 40px) / 3);
 }
 
 .card {
@@ -191,10 +166,6 @@ address {
     overflow: hidden;
 }
 
-.card__image {
-    width: 100%;
-    display: block;
-}
 
 .lots__more-link {
     display: inline-block;
@@ -249,7 +220,7 @@ address {
 
 .card > * {
     position: relative;
-    z-index: 1; /* контент над оверлеем */
+    z-index: 1;
 }
 
 .card_type_film {
@@ -287,6 +258,7 @@ address {
     word-break: normal;
 }
 
+/* =================== About =================== */
 .about {
     display: grid;
     grid-template-columns: calc((100% - 40px) / 3) 1fr;
@@ -338,6 +310,8 @@ address {
     margin-bottom: 0;
 }
 
+/* =================== Footer =================== */
+
 .footer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -362,8 +336,6 @@ address {
 
 .footer__menu-list {
     list-style: none;
-    padding: 0;
-    margin: 0;
     display: grid;
     justify-items: center;
     text-align: center;
@@ -384,8 +356,6 @@ address {
 
 .footer__social-list {
     list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
     gap: 48px;
     justify-content: flex-end;

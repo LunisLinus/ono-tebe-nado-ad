@@ -37,3 +37,24 @@ button {
     font: inherit;
 }
 
+address {
+    font-style: normal;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.section_bg-white {
+    background: #fff;
+}
+
+.section_bg-image {
+    position: relative;
+    background: url('../images/cover.jpg') center/cover no-repeat;
+    color: #fff;
+}
+
