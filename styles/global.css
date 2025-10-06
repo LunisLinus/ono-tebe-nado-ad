@@ -37,28 +37,3 @@ button {
     font: inherit;
 }
 
-/* Global layout utilities */
-
-/* Взаимное расположение блоков: универсальные внутренние и внешние отступы */
-.section {
-    padding: 60px 0; /* внутренние отступы секции */
-}
-
-.section + .section {
-    margin-top: 60px; /* внешний отступ между соседними секциями */
-}
-
-/* Отступ между хедером и первой секцией (обложкой) */
-.header + .main .section:first-of-type {
-    margin-top: 96px; /* расстояние между хедером и обложкой */
-}
-
-/* Фоны блоков: цвет или изображение */
-.section_bg-image {
-    background: url('../images/cover.jpg') center/cover no-repeat;
-    color: #fff;
-}
-
-.section_bg-white {
-    background: #fff; /* базовый светлый фон */
-}
