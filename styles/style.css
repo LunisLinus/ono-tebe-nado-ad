@@ -15,7 +15,6 @@
 }
 
 .header__link {
-    color: inherit;
     text-decoration: underline;
 }
 
@@ -25,23 +24,35 @@
 
 .header__logo img {
     width: 140px;
-    height: auto;
 }
 
 .header__address {
-    font-style: normal;
-    text-align: left;
     line-height: 24px;
     width: 240px;
     justify-self: end;
 }
 
-.cover + .lots {
-    margin-top: 180px;
+.header__menu .menu__item,
+.header__menu .header__links-list-item {
+    position: relative;
 }
 
-.lots + .about {
-    margin-top: 160px;
+.header__menu .menu__item:not(:last-child)::after,
+.header__menu .header__links-list-item:not(:last-child)::after {
+    position: absolute;
+    top: 50%;
+    right: -19px;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid currentColor;
+    pointer-events: none;
+}
+
+.header__menu .header__links-list-item.header__links-list-item_no-bullit::after {
+    content: none;
 }
 
 
@@ -115,8 +126,6 @@
     appearance: none;
     -webkit-appearance: none;
     margin: 0;
-    font: inherit;
-    line-height: inherit;
     text-transform: uppercase;
     font-size: 22px;
     text-decoration: none;
@@ -126,12 +135,15 @@
 
     width: 256px;
     height: 51px;
-    box-sizing: border-box;
     border: 1px solid #fff;
     padding: 12px 32px 11px 31px;
     background-color: transparent;
     color: #fff;
     transition: background-color .2s ease, box-shadow .2s ease, transform .02s ease;
+}
+
+.cover + .lots {
+    margin-top: 180px;
 }
 
 /* =================== Lots =================== */
@@ -171,29 +183,6 @@
     display: inline-block;
     font-size: 20px;
     margin-left: 65px;
-}
-
-.header__menu .menu__item,
-.header__menu .header__links-list-item {
-    position: relative;
-}
-
-.header__menu .menu__item:not(:last-child)::after,
-.header__menu .header__links-list-item:not(:last-child)::after {
-    position: absolute;
-    top: 50%;
-    right: -19px;
-    transform: translateY(-50%);
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: transparent;
-    border: 1px solid currentColor;
-    pointer-events: none;
-}
-
-.header__menu .header__links-list-item.header__links-list-item_no-bullit::after {
-    content: none;
 }
 
 .card-link {
@@ -258,6 +247,10 @@
     word-break: normal;
 }
 
+.lots + .about {
+    margin-top: 160px;
+}
+
 /* =================== About =================== */
 .about {
     display: grid;
@@ -281,7 +274,6 @@
 
 .about__logo-link img {
     width: 140px;
-    height: auto;
     filter: invert(1);
 }
 
@@ -330,7 +322,6 @@
 }
 
 .footer__menu {
-    display: block;
     justify-self: center;
 }
 
