@@ -15,49 +15,49 @@
         <ul class="menu__list header__links-list">
             <li class="menu__item header__links-list-item"><a class="header__link header__link_active"
                                                               href="#">главная</a></li>
-            <li class="menu__item header__links-list-item"><a class="header__link" href="#">посмотреть лоты</a></li>
-            <li class="menu__item header__links-list-item"><a class="header__link" href="#">об аукционе</a></li>
+            <li class="menu__item header__links-list-item"><a class="header__link" href="#lots">посмотреть лоты</a></li>
+            <li class="menu__item header__links-list-item"><a class="header__link" href="#about">об аукционе</a></li>
         </ul>
     </nav>
     <a class="header__logo" aria-label="Логотип">
-        <img class="header__logo-image" src="./images/logo-black.svg" alt="Оно тебе надо"/>
+        <img src="./images/logo-black.svg" alt="Оно тебе надо"/>
     </a>
     <address class="header__address">
         <a href="tel:+99995555555">+9 999 555 5555</a><br/>
         <a href="mailto:info@sobaka.ge">info@sobaka.ge</a><br/>
-        <span>наб. Принсенграхт 263-<br/>265, Амстердам</span>
+        <span>наб. Принсенграхт 263- 265, Амстердам</span>
     </address>
 </header>
 
-<main class="main">
-    <section class="cover section section_bg-image" aria-labelledby="cover-title">
+<main>
+    <section id="cover" class="cover section_bg-image" aria-labelledby="cover-title">
         <div class="overlay"></div>
-        <h1 id="cover-title" class="cover__title">
+        <h1 class="cover__title">
             <span class="aligned-text">
-                <span class="letter-spacing-extended">он</span><span class="no-letter-spacing">о</span>
+                <span class="letter-spacing-extended">оно</span>
             </span>
             <span class="aligned-text aligned-text_center">
-                <span class="letter-spacing-extended">теб</span><span class="no-letter-spacing">е</span>
+                <span class="letter-spacing-extended">тебе</span>
             </span>
             <span class="aligned-text aligned-text_right">
-                <span class="letter-spacing-extended">над</span><span class="no-letter-spacing">о</span>
+                <span class="letter-spacing-extended">надо</span>
             </span>
         </h1>
         <div class="cover__description">
             <p class="cover__description-text">
                 <span>аукцион</span>
-                <span>вещей,</span>
-                <span>в</span>
-                <span>которые</span>
-                <span>никто</span>
-                <span>не</span>
-                <span>верил</span>
+                <span class="ws-90">вещей,</span>
+                <span class="ws-80">в</span>
+                <span class="ws-110">которые</span>
+                <span class="ws-80">никто</span>
+                <span class="ws-90">не</span>
+                <span class="ws-80">верил</span>
             </p>
             <button class="bet-button" type="button">сделать ставку</button>
         </div>
     </section>
 
-    <section class="lots section section_bg-white" aria-labelledby="lots-title">
+    <section id="lots" class="lots section_bg-white" aria-labelledby="lots-title">
         <h2 id="lots-title" class="lots__title">Лоты</h2>
         <ul class="lots__list">
             <li class="lots__item">
@@ -94,14 +94,14 @@
         <a class="lots__more-link" href="#">посмотреть больше</a>
     </section>
 
-    <section class="about section section_bg-white" aria-labelledby="about-title">
+    <section id="about" class="about section_bg-white" aria-labelledby="about-title">
         <div class="about__column about__column_left">
             <div class="about__logo-link" aria-label="Логотип">
                 <img class="about__logo-image" src="./images/logo-black.svg" alt="Логотип Оно тебе надо"/>
             </div>
         </div>
         <div class="about__column about__column_right">
-            <h2 id="about-title" class="about__title">Об аукционе</h2>
+            <h2 class="about__title">Об аукционе</h2>
             <div class="about__text">
                 <p>Здесь вы не встретите очередное пафосное собрание невероятно дорогого антиквариата. Наши лоты вообще
                     не должны были попасть ни на один аукцион. Потому что кому нужен дневник девочки-подростка или
@@ -125,15 +125,15 @@
     </address>
     <nav class="footer__menu" aria-label="Меню в футере">
         <ul class="footer__menu-list">
-            <li><a href="#">главная</a></li>
-            <li><a href="#">посмотреть лоты</a></li>
-            <li><a href="#">об аукционе</a></li>
+            <li class="footer__menu-list-item"><a class="footer__menu-link footer__menu-link_active" href="#">главная</a></li>
+            <li class="footer__menu-list-item"><a class="footer__menu-link" href="#lots">посмотреть лоты</a></li>
+            <li class="footer__menu-list-item"><a class="footer__menu-link" href="#about">об аукционе</a></li>
         </ul>
     </nav>
     <ul class="footer__social-list" aria-label="Социальные сети">
-        <li><a href="#" aria-label="YouTube"><img src="./images/yt.svg" alt="YouTube"/></a></li>
-        <li><a href="#" aria-label="ВКонтакте"><img src="./images/vk.svg" alt="ВКонтакте"/></a></li>
-        <li><a href="#" aria-label="Pinterest"><img src="./images/pinterest.svg" alt="Pinterest"/></a></li>
+        <li class="footer__social-list-item"><a class="footer__social-link" href="#" aria-label="YouTube"><img class="footer__social-icon" src="./images/yt.svg" alt="YouTube"/></a></li>
+        <li class="footer__social-list-item"><a class="footer__social-link" href="#" aria-label="ВКонтакте"><img class="footer__social-icon" src="./images/vk.svg" alt="ВКонтакте"/></a></li>
+        <li class="footer__social-list-item"><a class="footer__social-link" href="#" aria-label="Pinterest"><img class="footer__social-icon" src="./images/pinterest.svg" alt="Pinterest"/></a></li>
     </ul>
 </footer>
 </body>
