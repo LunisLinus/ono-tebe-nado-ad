@@ -176,6 +176,10 @@
     background-position: center;
     padding: 50px 40px;
     overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 
@@ -192,12 +196,6 @@
     height: 100%;
 }
 
-.card {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
 
 .card::before {
     content: "";
