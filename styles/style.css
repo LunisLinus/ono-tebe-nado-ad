@@ -10,7 +10,7 @@
 .header__menu .menu__list,
 .header__menu .header__links-list {
     display: flex;
-    gap: 32px;
+    gap: 20px;
     list-style: none;
 }
 
@@ -32,27 +32,15 @@
     justify-self: end;
 }
 
-.header__menu .menu__item,
-.header__menu .header__links-list-item {
-    position: relative;
-}
-
-.header__menu .menu__item:not(:last-child)::after,
-.header__menu .header__links-list-item:not(:last-child)::after {
-    position: absolute;
-    top: 50%;
-    right: -19px;
-    transform: translateY(-50%);
+.header__links-list-item:not(:first-child)::before {
+    content: "";
+    display: inline-block;
     width: 6px;
     height: 6px;
+    margin-right: 15px;
+    border: 1.5px solid #000;
     border-radius: 50%;
-    background-color: transparent;
-    border: 1px solid currentColor;
-    pointer-events: none;
-}
-
-.header__menu .header__links-list-item.header__links-list-item_no-bullit::after {
-    content: none;
+    vertical-align: middle;
 }
 
 
